@@ -28,4 +28,4 @@ app.use('/', quoraSearch);
 
 app.use('/', allSearch);
 
-app.listen(3000, () => console.log("Bağlandı."));
+app.listen(process.env.PORT || 3000, () => console.log('Başlatıldı'));
