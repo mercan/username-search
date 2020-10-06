@@ -11,9 +11,7 @@ router.get('/quora/:username', async (req, res) => {
 		});
 	}
 
-	const usernameControl = await getUsername(
-		`https://www.quora.com/profile/${username}/`
-	);
+	const usernameControl = await getUsername(`https://www.quora.com/profile/${username}/`);
 
 	return res.status(200).json({ 
 		quora: true, 
