@@ -12,27 +12,17 @@ router.get('/allSearch/:username', async (req, res) => {
 	}
 
 	const reqLinks = [
-		`instagramSearch/${username}`,
-		`pinterestSearch/${username}`,
-		`dokuzGagSearch/${username}`,
-		`dribbbleSearch/${username}`,
-		`wattpadSearch/${username}`,
-		`githubSearch/${username}`,
-		`redditSearch/${username}`,
-		`tumblrSearch/${username}`,
-		`mediumSearch/${username}`,
-		`quoraSearch/${username}`,
+		"instagram", "pinterest", "dokuzGag", "dribbble", "wattpad", "github",
+		"reddit", "tumblr", "medium", "quora",
 	];
 
 	const returnArray = [];
 
 	async function usernameSearch(link) {
-		await fetch(`https://username-search.herokuapp.com/${link}`, {
+		await fetch(`https://username-search.herokuapp.com/${link}/${username}`, {
 			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json; charset=utf-8'
-			}
-		}).then(res => res.json()).then(response => returnArray.push(response));
+		}).then(res => res.json())
+		.then(resp => returnArray.push(resp));
 
 		if (reqLinks.length === returnArray.length) {
 			return res.status(200).json({ code: 200, response: returnArray });

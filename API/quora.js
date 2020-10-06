@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const getUsername = require('../getUsername');
 
-router.get('/quoraSearch/:username', async (req, res) => {
+router.get('/quora/:username', async (req, res) => {
 	const { username } = req.params;
 
 	if (!username) {

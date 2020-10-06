@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const getUsername = require('../getUsername');
 
-router.get('/dokuzGagSearch/:username', async (req, res) => {
+router.get('/dokuzGag/:username', async (req, res) => {
 	const { username } = req.params;
 
 	if (!username) {
