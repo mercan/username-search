@@ -11,21 +11,21 @@ const githubSearch    = require('./API/github');
 const redditSearch    = require('./API/reddit');
 const mediumSearch    = require('./API/medium');
 const quoraSearch     = require('./API/quora');
-
 const allSearch = require('./API/allSearch');
 
 // API App.use
-app.use('/', pinterestSearch);
-app.use('/', instagramSearch);
-app.use('/', dokuzGagSearch);
-app.use('/', dribbbleSearch);
-app.use('/', wattpadSearch);
-app.use('/', tumblrSearch);
-app.use('/', githubSearch);
-app.use('/', redditSearch);
-app.use('/', mediumSearch);
-app.use('/', quoraSearch);
-
-app.use('/', allSearch);
+const [
+  pinterestSearch,
+  instagramSearch,
+  dokuzGagSearch,
+  dribbbleSearch,
+  wattpadSearch,
+  tumblrSearch,
+  githubSearch,
+  redditSearch,
+  mediumSearch,
+  quoraSearch,
+  quoraSearch
+].forEach((i) => app.use('/', i));
 
 app.listen(process.env.PORT || 3000, () => console.log('Başlatıldı'));
